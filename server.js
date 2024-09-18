@@ -1,6 +1,16 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// CORS configuration
+const corsOptions = {
+  origin: "https://verification-form-flax.vercel.app", // Allow this origin
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: "Content-Type,Authorization",
+};
+
+app.use(cors(corsOptions)); // Apply the CORS options
 
 app.use(express.json()); // To parse JSON request bodies
 
